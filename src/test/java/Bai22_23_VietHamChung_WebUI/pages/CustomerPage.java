@@ -77,7 +77,7 @@ public class CustomerPage {
         WebUI.clickElement(dropdownGroups);
         WebUI.setText(inputSearchGroup, "Gold");
         WebUI.sleep(1);
-        driver.findElement(inputSearchGroup).sendKeys(Keys.ENTER);
+        WebUI.setKey(inputSearchGroup,Keys.ENTER);
         WebUI.clickElement(dropdownGroups);
         WebUI.setText(inputAddress,"Ha Noi");
         WebUI.setText(inputCity,"Ha Noi");
@@ -86,7 +86,8 @@ public class CustomerPage {
         WebUI.clickElement(dropdownCountry);
         WebUI.setText(inputSearchCountry, "Vietnam");
         WebUI.sleep(1);
-        driver.findElement(inputSearchCountry).sendKeys(Keys.ENTER);
+        //driver.findElement(inputSearchCountry).sendKeys(Keys.ENTER);
+        WebUI.setKey(inputSearchCountry,Keys.ENTER);
         WebUI.clickElement(buttonSaveCustomer);
 
     }

@@ -97,6 +97,7 @@ public class WebUI {
 
     public static void setText(By by, String text) {
         waitForElementVisible(by);
+        //highLightElement(by);
         getWebElement(by).sendKeys(text);
         logConsole("Set text " + text + " on input " + by);
     }
@@ -259,7 +260,7 @@ public class WebUI {
     public static void setKey(By by, Keys key) {
         waitForPageLoaded();
         getWebElement(by).sendKeys(key);
-        System.out.println("Set key: " + key.toString() + " on element " + by);
+        System.out.println("Set key: " + key.name() + " on element " + by);
     }
 
     public static void setTextAndKey(By by, String value, Keys key) {

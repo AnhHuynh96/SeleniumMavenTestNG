@@ -1,0 +1,37 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite Login CRM" verbose="1">
+    <parameter name="number1" value="5"></parameter>
+    <parameter name="number2" value="10"></parameter>
+    <parameter name="number3" value="20"></parameter>
+    <parameter name="email" value="admin@exapmle.com"></parameter>
+    <parameter name="password" value="123456"></parameter>
+    <parameter name="browser" value="chrome" />
+
+    <test name="Demo Parameter 01">
+        <parameter name="number1" value="0"></parameter>
+            <parameter name="number2" value="1"></parameter>
+            <parameter name="number3" value="2"></parameter>
+            <parameter name="email" value="admin@exapmle.com"></parameter>
+            <parameter name="password" value="123456"></parameter>
+
+        <classes>
+            <class name="Bai24_Parameters_MultiBrowser.DemoParameters01">
+<!--                <methods>-->
+<!--                    <exclude name="tinhTong2So"/>-->
+<!--                </methods>-->
+        </class>
+            
+        </classes>
+    </test>
+
+    <test name="Demo Parameter 02">
+
+        <classes>
+            <class name="Bai24_Parameters_MultiBrowser.DemoParameters02">
+
+            </class>
+
+        </classes>
+    </test>
+</suite>

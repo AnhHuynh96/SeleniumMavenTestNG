@@ -21,11 +21,20 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void testLoginWithEmailInvalid() {
+    public void testLoginWith_EmailInvalid() {
         loginPage = new LoginPage(driver);
 
         //Gọi các hàm xử lý có sẵn để sử dụng
         loginPage.loginCRM("admin123@example.com", "123456");
+        waitForPageLoaded();
+        loginPage.verifyLoginFail();
+    }
+    @Test
+    public void testLoginWith_PasswordInvalid() {
+        loginPage = new LoginPage(driver);
+
+        //Gọi các hàm xử lý có sẵn để sử dụng
+        loginPage.loginCRM("admin@example.com", "1234567");
         waitForPageLoaded();
         loginPage.verifyLoginFail();
     }

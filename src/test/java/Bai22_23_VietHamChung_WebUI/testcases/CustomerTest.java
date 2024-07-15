@@ -11,11 +11,12 @@ public class CustomerTest extends BaseTest {
     LoginPage loginPage;
     DashboardPage dashboardPage;
     CustomerPage customerPage;
-    private String CUSTOMER_NAME ="Viettel A2";
+    private String CUSTOMER_NAME = "Viettel ct1";
+
     @Test
-    public void addNewCustomer(){
+    public void addNewCustomer() {
         loginPage = new LoginPage(driver);
-        dashboardPage = loginPage.loginCRM(ConfigData.EMAIL,ConfigData.PASSWORD);
+        dashboardPage = loginPage.loginCRM(ConfigData.EMAIL, ConfigData.PASSWORD);
         loginPage.verifyLoginSuccess();
 
         customerPage = dashboardPage.clickMenuCustomers();
@@ -24,6 +25,13 @@ public class CustomerTest extends BaseTest {
         customerPage.inputDataCustomer(CUSTOMER_NAME);
 
 
+    }
+
+    @Test
+    public void testLogin() {
+        loginPage = new LoginPage(driver);
+        dashboardPage = loginPage.loginCRM(ConfigData.EMAIL, ConfigData.PASSWORD);
+        loginPage.verifyLoginSuccess();
 
     }
 }

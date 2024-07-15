@@ -29,15 +29,15 @@ public class BaseTest {
 
     //@BeforeMethod //Chạy trước mỗi @Test
     public void createBrowser() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+//        driver = new ChromeDriver();
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+//        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
     }
 
     @BeforeMethod
     @Parameters({"browser"})
-    public void createBrowser(@Optional("chrome") String browserName) {
+    public void setBrowser(@Optional("chrome") String browserName) {
         if (browserName.equals("chrome")) {
             driver = new ChromeDriver();
         }
@@ -51,7 +51,10 @@ public class BaseTest {
         driver.manage().window().maximize();
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); //Dành cho Junior
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+
+
     }
+
 
     @AfterMethod
     public void closeBrowser() {
@@ -61,25 +64,6 @@ public class BaseTest {
             throw new RuntimeException(e);
         }
         driver.quit();
-    }
-
-    public void clickElement(String locator) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        //wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(locator))));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
-        driver.findElement(By.xpath(locator)).click();
-    }
-
-    public void setText(String locator, String text) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
-        driver.findElement(By.xpath(locator)).sendKeys(text);
-    }
-
-    public String getTextElement(String locator) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
-        return driver.findElement(By.xpath(locator)).getText();
     }
 
     public Boolean checkElementExist(String xpath) {
